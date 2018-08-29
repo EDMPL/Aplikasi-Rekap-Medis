@@ -1,5 +1,6 @@
 package com.example.akaed.aplikasipuskesmas;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     Button loginBtn;
     Button registerButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 String pass = null;
                 user = username.getText().toString();
                 pass = password.getText().toString();
-                if( user.equals("jeremi") && pass.equals("admin") ){
+                if( user.equals("admin") && pass.equals("admin") ){
                     Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(mainIntent);
                     finish();
