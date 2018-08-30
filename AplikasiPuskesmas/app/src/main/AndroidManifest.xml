@@ -23,7 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DashboardActivity"></activity>
+        <activity android:name=".activity.DashboardActivity" />
+        <activity android:name=".activity.FamilyDataActivity" />
+        <activity android:name=".activity.IndividualDataActivity" />
+        <activity android:name=".activity.InputAnggotaActivity" />
+        <activity android:name=".activity.InputPenyakitActivity"></activity>
     </application>
 
 </manifest>
