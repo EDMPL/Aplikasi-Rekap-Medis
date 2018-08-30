@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D56E65"
     android:padding="15dp"
-    tools:context=".LoginActivity">
+    tools:context=".activity.LoginActivity">
 
 
 
@@ -61,15 +61,7 @@
         android:textColor="#FFF" />
 
     <Button
-        android:layout_width="190dp"
         android:id="@+id/login"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:background="@drawable/rectangle"
-        android:text="Create a New Account"
-        android:textColor="#FFF" />
-
-    <Button
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"

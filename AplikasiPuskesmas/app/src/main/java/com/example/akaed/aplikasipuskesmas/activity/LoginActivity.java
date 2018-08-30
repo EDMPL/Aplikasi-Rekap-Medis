@@ -1,6 +1,5 @@
-package com.example.akaed.aplikasipuskesmas;
+package com.example.akaed.aplikasipuskesmas.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.akaed.aplikasipuskesmas.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                 user = username.getText().toString();
                 pass = password.getText().toString();
                 if( user.equals("admin") && pass.equals("admin") ){
-                    Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent mainIntent = new Intent(LoginActivity.this, DashboardActivity.class);
                     startActivity(mainIntent);
                     finish();
                 }
