@@ -26,10 +26,9 @@ public abstract class AppBaseActivity extends AppCompatActivity {
         view_stub = (FrameLayout) findViewById(R.id.view_stub);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //toolbar.setNavigationIcon(R.drawable.ic_toolbar);
-        toolbar.setTitle("App Name");
     }
 
     /* Override all setContentView methods to put the content view to the FrameLayout view_stub
