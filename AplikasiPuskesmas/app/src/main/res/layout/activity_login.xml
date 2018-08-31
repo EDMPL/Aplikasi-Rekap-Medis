@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
+        android:imeOptions="actionNext"
         android:id="@+id/username"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="110dp"
@@ -47,8 +48,10 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:id="@+id/password"
+        android:imeOptions="actionNext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="210dp"
+        android:inputType="textPassword"
         android:background="@drawable/rectangle" />
 
     <Button
