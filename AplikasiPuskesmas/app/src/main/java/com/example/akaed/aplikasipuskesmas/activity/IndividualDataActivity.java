@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.akaed.aplikasipuskesmas.R;
 
-public class IndividualDataActivity extends AppCompatActivity {
+public class IndividualDataActivity extends AppBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

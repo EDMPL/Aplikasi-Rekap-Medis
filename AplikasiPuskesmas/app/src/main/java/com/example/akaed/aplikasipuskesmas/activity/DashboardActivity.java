@@ -1,12 +1,15 @@
 package com.example.akaed.aplikasipuskesmas.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -39,6 +42,15 @@ public class DashboardActivity extends AppBaseActivity implements SearchView.OnQ
                 (SearchView.SearchAutoComplete)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
         searchAutoComplete.setTextColor(Color.WHITE);
         searchView.setOnQueryTextListener(this);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.buttonInputAnggota);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentInputAnggota = new Intent(v.getContext(), InputAnggotaActivity.class);
+                startActivity(intentInputAnggota);
+            }
+        });
     }
 
     @Override

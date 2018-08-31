@@ -1,6 +1,7 @@
 package com.example.akaed.aplikasipuskesmas.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.akaed.aplikasipuskesmas.R;
+import com.example.akaed.aplikasipuskesmas.activity.IndividualDataActivity;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,14 @@ public class FamilyDataAdapter extends BaseAdapter{
         } else {
             gridView = (View) convertView;
         }
+
+        gridView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentIndividual =  new Intent(context, IndividualDataActivity.class);
+                context.startActivity(intentIndividual);
+            }
+        });
 
         return gridView;
     }
