@@ -9,7 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,40 +25,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Penyakit Saat Ini"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textColor="#000"/>
         <EditText
             android:id="@+id/etPnyekitSaatIni"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_height="wrap_content"/>
         <Spinner
             android:id="@+id/spinnerDiabetes"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:spinnerMode="dropdown"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+            android:layout_marginTop="15dp"/>
         <Spinner
             android:id="@+id/spinnerHipertensi"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:spinnerMode="dropdown"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+            android:layout_marginTop="15dp"/>
         <Spinner
             android:id="@+id/spinnerTBC"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:spinnerMode="dropdown"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+            android:layout_marginTop="15dp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -145,20 +143,20 @@
         </RelativeLayout>
         <Spinner
             android:id="@+id/spinnerImunisasi"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:spinnerMode="dropdown"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+            android:layout_marginTop="15dp"/>
         <Spinner
             android:id="@+id/spinnerKehamilan"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:spinnerMode="dropdown"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+            android:layout_marginTop="15dp"/>
     </LinearLayout>
     <Button
         android:id="@+id/buttonSubmitPenyakit"

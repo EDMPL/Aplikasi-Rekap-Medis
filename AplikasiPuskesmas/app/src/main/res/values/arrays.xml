@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="agama">
+        <item>Agama</item>
+        <item>Islam</item>
+        <item>Kristen Protestan</item>
+        <item>Katolik</item>
+        <item>Hindu</item>
+        <item>Buddha</item>
+        <item>Kong Hu Cu</item>
+    </array>
+
+    <array name="pendidikan">
+        <item>Pendidikan</item>
+        <item>Prasekolah</item>
+        <item>Sekolah Dasar</item>
+        <item>Sekolah Menengah Pertama</item>
+        <item>Sekolah Menengah Atas</item>
+        <item>Pendidikan Tinggi</item>
+    </array>
+
+    <array name="pekerjaan">
+        <item>Pekerjaan</item>
+        <item>Pelajar</item>
+        <item>Wiraswasta</item>
+        <item>Mengurus Rumah Tangga</item>
+        <item>Lain-lain</item>
+    </array>
+
+    <array name="imunisasi">
+        <item>Imunisasi</item>
+        <item>Imunisasi lengkap</item>
+        <item>Imunisasi belum lengkap</item>
+    </array>
+
+    <array name="hipertensi">
+        <item>Hipertensi</item>
+        <item>Tidak hipertensi</item>
+        <item>Pre-hipertensi</item>
+        <item>Hipertensi, terkontrol tanpa obat</item>
+        <item>Hipertensi, terkontrol dengan obat</item>
+        <item>Hipertensi, belum terkontrol</item>
+    </array>
+
+    <array name="diabetes_melitus">
+        <item>Diabetes Melitus</item>
+        <item>Tidak DM</item>
+        <item>Impaired Fasting Glucose</item>
+        <item>Impaired Glucose Tolerance</item>
+        <item>DM, terkontrol obat anti-diabetik</item>
+        <item>DM, terkontrol dengan insulin</item>
+        <item>DM, belum terkontrol</item>
+    </array>
+
+    <array name="kehamilan">
+        <item>Kehamilan</item>
+        <item>Tidak hamil</item>
+        <item>Hamil Trimester 1</item>
+        <item>Hamil Trimester 2</item>
+        <item>Hamil Trimester 3</item>
+    </array>
+
+    <array name="tbc">
+        <item>TBC</item>
+        <item>Tidak TB</item>
+        <item>Terkonfirmasi bakteriologis/terdiagnosis klinis</item>
+        <item>Pasien baru/kasus kambuh/diobati kembali setelah putus berobat/diobati kembali setelah gagal</item>
+        <item>TB paru, resisten obat</item>
+        <item>TB paru, dinyatakan sembuh</item>
+        <item>TB paru, pengobatan lengkap</item>
+        <item>TB paru, putus berobat</item>
+        <item>TB paru, pengobatan gagal</item>
+        <item>TB ekstraparu</item>
+    </array>
+</resources>
