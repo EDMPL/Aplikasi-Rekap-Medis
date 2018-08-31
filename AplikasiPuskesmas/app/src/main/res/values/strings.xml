@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Aplikasi Puskesmas</string>
+    <string name="app_name">Rekap Medis</string>
     <string name="title_activity_login">Login</string>
 
     <!-- Strings related to login -->
