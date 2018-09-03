@@ -1,0 +1,53 @@
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText
+        android:id="@+id/noKK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="No. KK"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/etAlamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/etLintang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lintang"
+        android:inputType="number"/>
+    <EditText
+        android:id="@+id/etBujur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bujur"
+        android:inputType="number"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.cyberpegasus.news.activity.MapsActivity" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_marker_green"
+            android:layout_gravity="center"
+            android:layout_marginTop="-25dp"
+            />
+    </FrameLayout>
+</LinearLayout>

@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import com.example.akaed.aplikasipuskesmas.R;
 
 public class InputAnggotaActivity extends AppBaseActivity {
-    private Button btnSubmitAnggota;
+    private Button btnSubmitAnggota, btnMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,15 @@ public class InputAnggotaActivity extends AppBaseActivity {
                     Intent intentInputPenyakit = new Intent(v.getContext(), InputPenyakitActivity.class);
                     startActivity(intentInputPenyakit);
                 }
+            }
+        });
+
+        btnMap = (Button) findViewById(R.id.buttonMap);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMap = new Intent(v.getContext(), MapsActivity.class);
+                startActivity(intentMap);
             }
         });
 
