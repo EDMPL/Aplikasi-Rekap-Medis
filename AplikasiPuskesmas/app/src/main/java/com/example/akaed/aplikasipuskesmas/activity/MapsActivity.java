@@ -3,6 +3,7 @@ package com.example.akaed.aplikasipuskesmas.activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -21,19 +22,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.akaed.aplikasipuskesmas.R;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
+import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
 import com.google.android.gms.location.places.Places;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,8 +51,7 @@ import java.util.List;
 public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    Button btnFinish;
-    EditText txtAddress;
+    EditText txtAddress, etLintang , etBujur;
     Float zoom = 16.0f;
     private static final String TAG = MapsActivity.class.getSimpleName();
     private final LatLng mDefaultLocation = new LatLng(-6.863257, 107.584040); //Sembada
@@ -107,7 +112,34 @@ public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         txtAddress = (EditText) findViewById(R.id.etAlamat);
-        //btnFinish = (Button) findViewById(R.id.buttonMapsFinish);
+
+        etLintang = (EditText) findViewById(R.id.etLintang);
+
+        etBujur = (EditText) findViewById(R.id.etBujur);
+
+        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                Log.i(TAG, "Place: " + place.getName());
+                txtAddress.setText(place.getName());
+                try {
+                    geoLocate();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+                Log.i(TAG, "An error occurred: " + status);
+            }
+        });
+
     }
 
     private void configureCameraIdle() {
@@ -128,6 +160,8 @@ public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback 
                         String country = addressList.get(0).getCountryName();
                         if (!locality.isEmpty() && !country.isEmpty()) {
                             txtAddress.setText(locality + " " + country);
+                            etLintang.setText(String.valueOf(latLng.latitude));
+                            etBujur.setText(String.valueOf(latLng.longitude));
                         }
                     }
                 } catch (IOException e) {
@@ -149,6 +183,21 @@ public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback 
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        try {
+            // Customise the styling of the base map using a JSON object defined
+            // in a raw resource file.
+            boolean success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, R.raw.style_json));
+
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e(TAG, "Can't find style. Error: ", e);
+        }
+
+
         mMap = googleMap;
 
         // Do other setup activities here too, as described elsewhere in this tutorial.
@@ -172,6 +221,10 @@ public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, zoom));
         mMap.setOnCameraIdleListener(onCameraIdleListener);
 
+        ActivityCompat.requestPermissions(this,
+                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+
         // Prompt the user for permission.
         //getLocationPermission();
 
@@ -179,10 +232,10 @@ public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback 
         //updateLocationUI();
 
         // Get the current location of the device and set the position of the map.
-        //getDeviceLocation();
+        getDeviceLocation();
     }
 
-    public void geoLocate(View view) throws IOException {
+    public void geoLocate() throws IOException {
         String location = txtAddress.getText().toString();
         try {
             Geocoder gc = new Geocoder(this);
@@ -253,11 +306,12 @@ public class MapsActivity extends AppBaseActivity implements OnMapReadyCallback 
             if (mLocationPermissionGranted) {
                 mMap.setMyLocationEnabled(true);
                 mMap.getUiSettings().setMyLocationButtonEnabled(true);
+                getDeviceLocation();
             } else {
                 mMap.setMyLocationEnabled(false);
                 mMap.getUiSettings().setMyLocationButtonEnabled(false);
                 mLastKnownLocation = null;
-                getLocationPermission();
+                //getLocationPermission();
             }
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage());
