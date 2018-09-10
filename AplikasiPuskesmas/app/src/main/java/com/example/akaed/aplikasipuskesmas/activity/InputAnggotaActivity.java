@@ -70,8 +70,10 @@ public class InputAnggotaActivity extends AppBaseActivity {
                     if(tglLahir.getError() != null)
                         tglLahir.setError(null);*/
 
-                    Intent intentInputPenyakit = new Intent(v.getContext(), InputPenyakitActivity.class);
-                    startActivity(intentInputPenyakit);
+                    if(tglLahir.getError() == null) {
+                        Intent intentInputPenyakit = new Intent(v.getContext(), InputPenyakitActivity.class);
+                        startActivity(intentInputPenyakit);
+                    }
                 }
             }
         });
