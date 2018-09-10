@@ -33,6 +33,9 @@ public class DashboardActivity extends AppBaseActivity implements SearchView.OnQ
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        //Untuk menghilangkan tombol back pada toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
         listKeluarga = new ArrayList<>();
         for(int i = 0; i < 10; i++) {
             listKeluarga.add(new Keluarga("Bapak/Ibu " + i, "Jalan alamat no. " + i));
@@ -56,7 +59,6 @@ public class DashboardActivity extends AppBaseActivity implements SearchView.OnQ
                 startActivity(intentInputAnggota);
             }
         });
-        countAgeFromNIK("3273012208980002");
     }
 
     @Override
@@ -77,40 +79,5 @@ public class DashboardActivity extends AppBaseActivity implements SearchView.OnQ
         listView.setAdapter(adapter);
         ((DashboardAdapter) listView.getAdapter()).notifyDataSetChanged();
         return true;
-    }
-
-    public void countAgeFromNIK(String nik) {
-        if(nik.length() != 16){
-            Toast.makeText(DashboardActivity.this,"NIK TIDAK VALID !", Toast.LENGTH_LONG).show();
-        }
-        else{
-            try{
-                //Mengambil 6 digit tanggal lahir dari nik
-                String temp = nik.substring(6, 12);
-                if(Integer.parseInt(temp.substring(4)) > 18){
-                    DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
-                    //Mengubah string tanggal yang diambil dari nik menjadi format hh/bb/tttt
-                    String strDate = temp.substring(0,2) + "/" + temp.substring(2,4) + "/" + "19" + temp.substring(4);
-                    Date date = sourceFormat.parse(strDate);
-
-                    //Mengambil tanggal saat ini
-                    Date dateNow = new Date();
-                    Calendar calDate = Calendar.getInstance();
-                    calDate.setTime(date);
-                    Calendar calDateNow = Calendar.getInstance();
-                    calDateNow.setTime(dateNow);
-
-                    int diff = calDateNow.get(YEAR) - calDate.get(YEAR);
-                    if (calDate.get(MONTH) > calDateNow.get(MONTH) ||
-                            (calDate.get(MONTH) == calDateNow.get(MONTH) && calDate.get(DATE) > calDateNow.get(DATE))) {
-                        diff--;
-                    }
-                    Toast.makeText(DashboardActivity.this,"Umur anda: " + diff, Toast.LENGTH_LONG).show();
-                    System.out.println("Umur anda: " + diff);
-                }
-            }catch (Exception e) {
-                System.out.println("NIK TIDAK VALID !");
-            }
-        }
     }
 }

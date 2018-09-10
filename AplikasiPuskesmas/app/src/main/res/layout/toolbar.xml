@@ -8,4 +8,5 @@
     app:title="@string/app_name"
     app:titleTextColor="#FFF"
     app:subtitleTextColor="#FFF"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/ToolbarTheme"/>

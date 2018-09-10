@@ -14,7 +14,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,6 +48,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="BPJS"/>
+            <EditText
+                android:id="@+id/etTempatLahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tempat Lahir"/>
+            <EditText
+                android:id="@+id/etTanggalLahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="Tanggal Lahir"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

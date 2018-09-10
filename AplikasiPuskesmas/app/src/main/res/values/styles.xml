@@ -7,5 +7,10 @@
         <item name="colorPrimaryDark">#D56E65</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Mengganti warna back arrow dan drawer icon -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
 
 </resources>
